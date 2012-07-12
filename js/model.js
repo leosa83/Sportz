@@ -37,6 +37,7 @@ var restaurant = function(name) {
 
 var model = function() {
 	var _this = this;
+	this.listeners = [];
 	this.restaurants = new Array();
 	this.pushRestaurant = function(restaurant){_this.restaurants.push(restaurant);};
 	this.getRestaurants = function(){return _this.restaurants;};

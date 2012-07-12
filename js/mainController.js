@@ -1,3 +1,5 @@
 
-var mainController = function() {};
+var mainController = function(model){
+	this.model = model; 
+};
 
