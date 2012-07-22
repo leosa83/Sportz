@@ -1,85 +1,89 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+﻿<!DOCTYPE html>
+<html>
 <head>
 <meta content="sv" http-equiv="Content-Language" />
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 <title>Sportz</title>
-<style type="text/css">
-.auto-style1 {
-	border-style: solid;
-	border-width: 1px;
-	padding: 1px 4px;
-}
-</style>
 </head>
 
 <body>
 
-<! Any comments regarding a specific element is placed immediately below the opening tag -->
+<!---- Any comments regarding a specific element is placed immediately below the opening tag -->
+
 
 <div id="main_wrapper">
-	<div id="main_header" class="header" align="">
-		<div id="logotype"><img src="" alt="">Sportz logga</img></div>
+	<div id="main_header" class="header">
+		<div id="logotype"><img src="" alt="Sportz Logga" />Sportz Logga</div>
 		<button>Byt stad</button>
 	</div>
 	<hr style="color:black" />
 	<div id="content_wrapper">
 		<div id="main_content" style="float:left" style="width: 85%">
-			<! This div is mainly a wrapper of the searchresult but also for the search tool -->
+			<!-- This div is mainly a wrapper of the searchresult but also for the search tool -->
 			<div id="main_content_header" class="header">
-				<! Something to show - maybe a banner -->
+				<!-- Something to show - maybe a banner -->
 			</div>
-			<div id="main_search_tool" class="wrapper mockup" name="mockup1">
+			<div id="main_search_tool" class="wrapper mockup">
 				<fieldset id="search_group">
 					<legend>Lägg till sökparametrar</legend>
-					<div id="input_tool_event" class="input_tool">Event : <input id="event_input" type="text" /><br/><div id="parameter_container_events" class="parameter_container"><! contains all current search parameters --> <div id="parameter_type" class="parameter_event"></div></div></div>
-					<div id="input_tool_sport" class="input_tool">Sport : <input id="sport_input" type="text" /><br/><div id="parameter_container_sports" class="parameter_container"><! contains all current search parameters --></div></div>
-					<div id="input_tool_sportsbar" class="input_tool">Sportbar : <input id="sportsbar_input" type="text" /><br/><div id="parameter_container_sportsbars" class="parameter_container"><! contains all current search parameters --></div></div>
-					<div id="input_tool_date" class="input_tool">Datum : <input id="date_input" type="text" /><br/><div id="parameter_container_dates" class="parameter_container"><! contains all current search parameters --></div></div>
-					<div id="input_tool_campaign" class="input_tool">Visa endastt erbjudanden med kampanjer : <input id="campaign_input" type="checkbox" /><br/><div id="parameter_container_dates" class="parameter_container"><! contains all current search parameters --></div></div>
+					<div id="input_tool_event" class="input_tool">Event : <input id="event_input" type="text" /><br/><div id="parameter_container_events" class="parameter_container"><!-- contains all current search parameters --> <div class="parameter_event" data-type="team" data-team="milan"><!-- content --></div></div></div>
+					<div id="input_tool_sport" class="input_tool">Sport : <input id="sport_input" type="text" /><br/><div id="parameter_container_sports" class="parameter_container"><!-- contains all current search parameters --></div></div>
+					<div id="input_tool_sportsbar" class="input_tool">Sportbar : <input id="sportsbar_input" type="text" /><br/><div id="parameter_container_sportsbars" class="parameter_container"><!-- contains all current search parameters --></div></div>
+					<div id="input_tool_date" class="input_tool">Datum : <input id="date_input" type="date" /><br/><div id="parameter_container_dates" class="parameter_container"><!-- contains all current search parameters --></div></div>
+					<div id="input_tool_campaign" class="input_tool">Visa endast erbjudanden med kampanjer : <input id="campaign_input" type="checkbox" /><br/><div id="parameter_container_dates" class="parameter_container"><!-- contains all current search parameters --></div></div>
 				</fieldset>
 			</div>
-			<div id="main_search_results" class="wrapper mockup" name="mockup1">
-				<div id="date_identifier" class="list_result_events">
-					<div id="date_identifier" class="result_delimiter_date">
-						<h1>Idag</h1>
+			<div id="main_search_results" class="wrapper mockup">
+				<div class="day_list_events">
+					<div  class="dateinfo">
+						<div class="month-day">
+							<param />
+							<div class="month">
+								July
+							</div>
+							<div class="day">
+								1
+							</div>
+						</div>
+						<div class="weekday">
+							Idag
+						</div>
 					</div>
 					Visas följande events
 					<div id="event_identifier" class="result_delimiter_event event_info_short sport_identifier campaign">
 						<div class="event_result_header">
 							Event 1
 							<div id="event_identifier" class="map_list_button currentstate_list">
-								<! Button for showing the sportsbars on a map instead of a list and vice versa -->
+								<!-- Button for showing the sportsbars on a map instead of a list and vice versa -->
 								<button id="show_map">Visa sportbarer på karta</button>
 								<button id="show_list" visible="false" >Visa som lista</button>
 							</div>
 							<div id="event_identifier" class="event_info">
-								<! This div contains info regarding the event. Example below -->
+								<!-- This div contains info regarding the event. Example below -->
 								<div class="event_info_soccer mockup">
-									<! implementation of a soccer event info div goes here -->
+									<!-- implementation of a soccer event info div goes here -->
 									<div id="team_identifier" class="soccer_team home_team">
-										<img src="" alt="">bild på Lag1</img>
+										<img src="" alt="" />bild på Lag1
 									</div>
 									<p>VS</p>
 									<div id="team_identifier" class="soccer_team visiting_team">
-										<img src="" alt="">bild på Lag2</img>
+										<img src="" alt="" />bild på Lag2
 									</div>
 								</div>
 							</div>
 						</div>
 						<div id="event_identifier" class="map_result" visible="false">
-							<! Shows Sportsbars on a map -->
+							<!-- Shows Sportsbars on a map -->
 						</div>
 						Event 1 visas på följande sportbarer
 						<div class="list_result_sportsbar">
-							<! This div is a list of all sportsbar related to this event. Has the "campaign" class if any of the sportsbars offers any campaigns for this event.  -->
+							<!-- This div is a list of all sportsbar related to this event. Has the "campaign" class if any of the sportsbars offers any campaigns for this event.  -->
 							<div id="sportsbar_identifier" class="result_delimiter_sportsbar sportsbar_info_short campaign">
-								<! Is a delimiter. Contains info regarding this sportsbar.  Has the "campaign" class if the the sportsbar offers any campaigns. -->
+								<!-- Is a delimiter. Contains info regarding this sportsbar.  Has the "campaign" class if the the sportsbar offers any campaigns. -->
 								<div id="sportsbar_identifier" class="sportsbar_result_header">
 									<div id="sportsbar_identifier" class="sportsbar_info_short" >
 										<p>Sportbar 1</p>
-										<img src="" alt="">bild på sportbaren</img>
+										<img src="" alt="" />bild på sportbaren
 										<p>medelbetyg: 5</p>
 										<p>Gatuadress</p>
 									</div>
@@ -89,10 +93,10 @@
 									<a href="google.com">Mer info om sportbaren</a>
 								</div>
 								<div id="sportsbar_identifier" class="result_delimiter_campaign">
-									<! Is a delimiter. Container for all campaigns for this particular sportsbar for this particular event -->
+									<!-- Is a delimiter. Container for all campaigns for this particular sportsbar for this particular event -->
 									<div id="campaign_identifier" class="campaign_info_short">
-										<! Shows short info about a particular campaign for this particular sportsbar for this particular event -->
-										<img src="" alt="" >bild på erbjudandet</img>
+										<!-- Shows short info about a particular campaign for this particular sportsbar for this particular event -->
+										<img src="" alt="" />bild på erbjudandet
 										<p>Två öl för en</p>
 										<a href="">Mer info om erbjudandet</a>
 									</div>
@@ -104,18 +108,18 @@
 			</div>
 		</div>
 		<div id="secondary_content">
-			<! This div will mainly contain campaigns and offers from sportsbars -->
+			<!-- This div will mainly contain campaigns and offers from sportsbars -->
 			<div id="secondary_content_header" class="header">Kampanjer</div>
 			<div id="seconday_content_campaigns">
 				<div id="campaign_identifier" class="campaign_info_short">
-					<! Shows short info about a particular campaign for this particular sportsbar for this particular event -->
-					<img src="" alt="" >bild på erbjudandet</img>
+					<!-- Shows short info about a particular campaign for this particular sportsbar for this particular event -->
+					<img src="" alt="" />bild på erbjudandet
 					<p>5 öl för tio riksdaler</p>
 					<a href="">Mer info om erbjudandet</a>
 				</div>
 				<div id="campaign_identifier" class="campaign_info_short">
-					<! Shows short info about a particular campaign for this particular sportsbar for this particular event -->
-					<img src="" alt="" >bild på erbjudandet</img>
+					<!-- Shows short info about a particular campaign for this particular sportsbar for this particular event -->
+					<img src="" alt="" />bild på erbjudandet
 					<p>En biff med potatis</p>
 					<a href="">Mer info om erbjudandet</a>
 				</div>

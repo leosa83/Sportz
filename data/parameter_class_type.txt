@@ -1,0 +1,6 @@
+event	team
+event	league
+sport	soccer
+sportsbar
+date	from
+date	to

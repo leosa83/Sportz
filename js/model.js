@@ -1,61 +1,92 @@
 
 var restaurantNames = [ "Bjork", "Tall", "Ek"];
 var sportevents = ["test1","test2","test3"];
+var mainPlaylist = {};
+var nrOfEvents =-1;
 
-var sportEvent = function() {
-	var _this = this;
-	this.id="";
-	this.description ="";
-	this.type = type;
-	this.date = date;
-	this.time="";
-	
-	this.setDate = function(date) {_this.date=date;};
-	this.setType = function(type){_this.type=type;};
-	
-};
+function nextEventId() {nrOfEvents++; return nrOfEvents;}
+
+var SportEvent = function() {
+	debugger;
+	var that = this;
+	this.id= nextEventId();
+	this.description ="nada";
+	this.type = "nada";
+	this.date="2010";
+	this.subscribers = [];
+	this.subscribe = function(subscriber) {
+		that.subscribers.push(subscriber);
+	}
+}
 
 
-var campaign = function() {
-	this.description="";
-};
+
+function setDate(date) {this.date=date;};
+function setType(type) {this.type=type};
+
+var SoccerEvent= function() {
+	var sportevent = new SportEvent();
+	sportevent.type="soccer";
+	sportevent.team = {hometeam:"manchester",visitingteam:"united"};
+	mainPlaylist[sportevent.id]=sportevent;
+	return sportevent;
+}
+
+
+var Campaign = function() {
+	this.id;
+	this.owner_id;
+	this.description;
+}
 
 
 var restaurant = function(name) {
-	var _this=this;
+	var that=this;
 	this.name =name;
 	this.adress ="";
 	this.website="";
-	this.playlist = new Array();
-	this.campaigns = new Array();
+	this.playlist = [];
+	this.campaigns = [];
 	
-	this.pushEvent = function(sportEvent) {_this.playlist.push(sportEvent); return _this;};
-	this.getEvents = function() {return _this.playlist;}
-	this.pushCampaign = function(campaign) {_this.campaigns.push(campaign); return _this;};
-	this.getCampaigns = function(){return _this.campaigns};
+	this.pushEvent = function(sportEvent) {that.playlist.push(sportEvent); sportEvent.subscribe(that); return that;};
+	this.getEvents = function() {return that.playlist;}
+	this.pushCampaign = function(campaign) {that.campaigns.push(campaign); return that;};
+	this.getCampaigns = function(){return that.campaigns};
 }
 
 var model = function() {
-	var _this = this;
+	var that = this;
+	this.playlist = [];
 	this.listeners = [];
-	this.restaurants = new Array();
-	this.pushRestaurant = function(restaurant){_this.restaurants.push(restaurant);};
-	this.getRestaurants = function(){return _this.restaurants;};
+	this.restaurants = [];
+	this.pushRestaurant = function(restaurant){that.restaurants.push(restaurant);};
+	this.getRestaurants = function(){return that.restaurants;}
 	this.getCampaigns = function() {
 		var out = new Array();
 		var temp=null;
-		for(var i=0,j=_this.restaurants.length; i<j; i++){
-		  temp=_this.restaurants[i].getCampaigns();
+		for(var i=0,j=that.restaurants.length; i<j; i++){
+		  temp=that.restaurants[i].getCampaigns();
 		  for(var i=0,j=temp.length; i<j; i++){
 			out.push(temp[i]);
 		  };
 		};
 		return out;
-	};
-};
+	}
+	this.getEvents = function() {
+		return that.playlist;
+	}
+	
+	this.attach = function(observer) {that.listeners.push(observer);}
+	this.notifyChange = function(param) {
+		for(var i=0,j=that.listeners.length; i<j; i++){
+		  that.listeners[i].update(that,param);
+		}
+	}	
+}
+
 
 var createTestData = function(model) {
 	for(var i=0,j=restaurantNames.length; i<j; i++){
-	  model.pushRestaurant(new restaurant(restaurantNames[i]).pushEvent(sportevents[i%2]));
-	};
+	  model.pushRestaurant(new restaurant(restaurantNames[i]).pushEvent(new SoccerEvent()));
+	}
 }
